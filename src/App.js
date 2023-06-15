@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import ClassComponentExample from './components/basics/class-component-eg';
+import FuctionalComponentExample from './components/basics/functional-component-eg';
+import HooksExample from './components/basics/hooks-eg';
+import PropsExample from './components/basics/props-eg';
+import StateExample from './components/basics/state-eg';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  return(
+    <div>
+      <ClassComponentExample/>
+      <FuctionalComponentExample/>
+      <PropsExample/>
+      <StateExample/>
+      <HooksExample/>
     </div>
   );
 }
