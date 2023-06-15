@@ -1,17 +1,10 @@
-import ClassComponentExample from './components/basics/class-component-eg';
-import FuctionalComponentExample from './components/basics/functional-component-eg';
-import HooksExample from './components/basics/hooks-eg';
-import PropsExample from './components/basics/props-eg';
-import StateExample from './components/basics/state-eg';
+import './App.css';
+import Login from './components/login/login';
 
 function App() {
   return(
-    <div>
-      <ClassComponentExample/>
-      <FuctionalComponentExample/>
-      <PropsExample/>
-      <StateExample/>
-      <HooksExample/>
+    <div className='body'>
+      <Login /> 
     </div>
   );
 }

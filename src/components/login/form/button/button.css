@@ -1,0 +1,21 @@
+.actionButton {
+    background: #3751FF;
+    box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
+    border-radius: 8px;
+    height: 48px;
+    width: 316px;
+    border-radius: 8px;
+}
+
+.actionHeading {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #FFFFFF;
+    height: 20px;
+    width: 268px;
+    left: 24px;
+    top: 15px;
+}

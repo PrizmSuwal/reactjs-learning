@@ -1,0 +1,24 @@
+.description{
+    height: 20px;
+    top: 526px;
+    border-radius: nullpx;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    color: #9FA2B4;    
+}
+
+.link{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #3751FF;
+}
+
+a{
+    text-decoration: none;
+}

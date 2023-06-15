@@ -1,0 +1,16 @@
+.loginBody {
+box-sizing: border-box;
+background: #FFFFFF;
+border: 1px solid #DFE0EB;
+border-radius: 8px;
+width: 380px;
+height: 586px;
+margin-left: auto;
+margin-right: auto;
+display: block;
+padding: 15px;
+}
+
+.form{
+    margin-left: 32px;
+}

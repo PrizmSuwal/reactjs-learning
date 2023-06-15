@@ -1,0 +1,20 @@
+.checkBox {
+    box-sizing: border-box;
+    background: #FCFDFE;
+    border: 1px solid #F0F1F7;
+    border-radius: 4px;
+
+    height: 16px;
+    top: 412px;
+    border-radius: 4px;
+}
+
+.label {
+    height: 20px;
+    top: 410px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    color: #9FA2B4;
+}
