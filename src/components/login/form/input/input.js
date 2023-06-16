@@ -11,8 +11,9 @@ function Input(props) {
       <div className='inputBox'>
         <input
           className='inputText'
-          type={password}
+          type={props.type === 'password' ? password : 'text'}
           placeholder={props.placeholder}
+          name={props.name}
         />
           {props.type === 'password' && 
           <button  className='icon' onClick={handlePassword}>

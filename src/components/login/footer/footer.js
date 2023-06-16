@@ -1,14 +1,7 @@
-import './footer.css'
-function FooterDescription(props) {
+import FooterDescription from "./description/footer";
+  
+export default function LoginFooter() {
     return (
-      <div className='description'>
-        <span> {props.title}
-        <a className='link' href={props.link}>
-          {props.linkValue}
-        </a>
-        </span>
-      </div>
+        <FooterDescription title="Don't have an account?" link="/signup" linkValue="Sign Up"/>
     );
-  }
-
-export default FooterDescription;
+}
