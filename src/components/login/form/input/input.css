@@ -1,31 +1,29 @@
-.inputbox{
-    height: 42px;
-    width: 316px;
-    left: 0px;
-    top: 22px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    background: #FCFDFE;
-    border: 1px solid #F0F1F7;
+.inputbox {
+  height: 42px;
+  width: 316px;
+  left: 0px;
+  top: 22px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background: #fcfdfe;
+  border: 1px solid #f0f1f7;
 }
 
-.inputText{
+.inputText {
+  height: 20px;
+  top: 33px;
 
-    height: 20px;
-    top: 33px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
 
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.3px;
+  color: #4b506d;
 
-    color: #4B506D;
-
-    opacity: 0.4;
+  opacity: 0.4;
 }
 
 .icon {
-    border: none;
-    background: #FCFDFE;
-
+  border: none;
+  background: #fcfdfe;
 }

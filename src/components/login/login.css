@@ -1,24 +1,22 @@
 .loginBody {
-box-sizing: border-box;
-background: #FFFFFF;
-border: 1px solid #DFE0EB;
-border-radius: 8px;
-width: 380px;
-height: 586px;
-margin-left: auto;
-margin-right: auto;
-display: block;
-padding: 15px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #dfe0eb;
+  border-radius: 8px;
+  width: 380px;
+  height: 586px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 15px;
 }
 
+.body {
+  font-family: 'Mulish';
+  font-style: normal;
+  background: #363740;
 
-
-.body{
-    font-family: 'Mulish';
-    font-style: normal;
-    background: #363740;
-    
-    height: 860px;
-    border-radius: 0px;
-    padding: 100px 530px;
-}  
+  height: 860px;
+  border-radius: 0px;
+  padding: 100px 530px;
+}

@@ -4,15 +4,15 @@ import LoginHeader from './header/header';
 import LoginFooter from './footer/footer';
 
 function Login() {
-    return (
-      <div className='body' >
-         <div className='loginBody'>
-          <LoginHeader />
-          <LoginForm />
-          <LoginFooter />
-        </div>
-      </div>     
-    );
+  return (
+    <div className="body">
+      <div className="loginBody">
+        <LoginHeader />
+        <LoginForm />
+        <LoginFooter />
+      </div>
+    </div>
+  );
 }
-  
+
 export default Login;

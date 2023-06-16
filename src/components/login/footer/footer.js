@@ -1,7 +1,5 @@
-import FooterDescription from "./description/footer";
-  
+import FooterDescription from './description/footer';
+
 export default function LoginFooter() {
-    return (
-        <FooterDescription title="Don't have an account?" link="/signup" linkValue="Sign Up"/>
-    );
+  return <FooterDescription title="Don't have an account?" link="/signup" linkValue="Sign Up" />;
 }
