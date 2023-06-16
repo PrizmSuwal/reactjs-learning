@@ -14,3 +14,13 @@ padding: 15px;
 .form{
     margin-left: 32px;
 }
+
+.body{
+    font-family: 'Mulish';
+    font-style: normal;
+    background: #363740;
+    
+    height: 860px;
+    border-radius: 0px;
+    padding: 100px 530px;
+}  

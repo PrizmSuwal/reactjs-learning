@@ -1,10 +1,11 @@
-import Button from './form/button/button';
-import Checkbox from './form/checkbox/checkbox';
-import FieldName from './form/field/field';
-import Input from './form/input/input';
-import Heading from './header/heading/heading';
-import LogoDisplay from './header/logo/logo';
-import './login.css';
+import Button from "../login/form/button/button";
+import Checkbox from "../login/form/checkbox/checkbox";
+import FieldName from "../login/form/field/field";
+import FooterDescription from "../login/footer/footer";
+import Heading from "../login/header/heading/heading";
+import Input from "../login/form/input/input";
+import LogoDisplay from "../login/header/logo/logo";
+import '../login/login.css'
 
 function Header() {
     return (
@@ -44,12 +45,13 @@ function Footer() {
   
 function SignUp() {
     return (
-      <div className='loginBody'>
-        <Header />
-        <Form />
-        <Footer />
+      <div className="body" >
+          <div className='loginBody'>
+            <Header />
+            <Form />
+            <Footer />
+        </div>
       </div>
-     
     );
 }
   

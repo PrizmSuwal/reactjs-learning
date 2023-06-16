@@ -46,12 +46,13 @@ function Footer() {
   
 function Login() {
     return (
-      <div className='loginBody'>
-        <Header />
-        <Form />
-        <Footer />
-      </div>
-     
+      <div className='body' >
+         <div className='loginBody'>
+          <Header />
+          <Form />
+          <Footer />
+        </div>
+      </div>     
     );
 }
   
