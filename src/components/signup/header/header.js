@@ -1,5 +1,5 @@
-import Heading from '../../login/header/heading/heading'
-import LogoDisplay from '../../login/header/logo/logo'
+import Heading from '../../common/heading/heading'
+import LogoDisplay from '../../common/logo/logo'
 import React from 'react'
 
 export default function SignUpHeader () {

@@ -1,4 +1,4 @@
-import FooterDescription from '../../login/footer/description/footer'
+import FooterDescription from '../../common/description/footer'
 import React from 'react'
 
 export default function SignUpFooter () {

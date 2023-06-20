@@ -1,11 +1,11 @@
 import '../../login/form/form.css'
 import React, { useState } from 'react'
 import hidden from '../../../images/Vector.png'
-import '../../login/form/input/input.css'
-import '../../login/form/button/button.css'
+import '../../common/input/input.css'
+import '../../common/button/button.css'
 import Checkbox from '../../common/checkbox/checkbox'
-import Button from '../../login/form/button/button'
-import FieldName from '../../login/form/field/field'
+import Button from '../../common/button/button'
+import FieldName from '../../common/field/field'
 
 function SignUpForm () {
   const [formState, setFormState] = useState({

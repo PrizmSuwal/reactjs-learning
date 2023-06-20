@@ -1,6 +1,6 @@
-import Heading from './heading/heading'
-import LogoDisplay from './logo/logo'
-import SubHeading from './sub-heading/sub-heading'
+import Heading from '../../common/heading/heading'
+import LogoDisplay from '../../common/logo/logo'
+import SubHeading from '../../common/sub-heading/sub-heading'
 import React from 'react'
 
 export default function LoginHeader () {
