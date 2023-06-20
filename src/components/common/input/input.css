@@ -1,6 +1,6 @@
-.inputbox {
+.inputBox {
   height: 42px;
-  width: 316px;
+  width: 300px;
   left: 0px;
   top: 22px;
   border-radius: 8px;
@@ -9,21 +9,29 @@
   border: 1px solid #f0f1f7;
 }
 
-.inputText {
+.inputBox input{
   height: 20px;
-  top: 33px;
-
+  padding: 11px 8px 11px 16px;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.3px;
-
   color: #4b506d;
-
   opacity: 0.4;
+  border: none;
+  font-family: 'Mulish';
+  width: 275px;
+  font-style: normal;
+}
+
+.password-input {
+  position: relative;
+  top: 0px;
 }
 
 .icon {
-  border: none;
-  background: #fcfdfe;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }

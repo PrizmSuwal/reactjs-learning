@@ -19,8 +19,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react'],
-  rules: {
-    'semi-spacing': ['error', { before: false, after: true }]
-  }
+  plugins: ['react', "eslint-plugin-eslint-plugin"],
+  rules: {}
 }

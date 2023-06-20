@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import hidden from '../../../images/Vector.png'
 import '../../common/input/input.css'
 import '../../common/button/button.css'
-import Checkbox from '../../common/checkbox/checkbox'
 import Button from '../../common/button/button'
 import FieldName from '../../common/field/field'
 
@@ -15,7 +14,9 @@ function SignUpForm () {
     confirmPassword: ''
   })
 
-  const [password, showPassword] = useState('password')
+  const [password, showPassword] = useState(true)
+
+  const [isChecked, changeChecked] = useState(false)
 
   function handleChange (event) {
     setFormState({
@@ -26,15 +27,30 @@ function SignUpForm () {
 
   // ideally need to add these data to database
   function handleSubmit (event) {
+    if (!formState.fullName.trim() || !formState.email.trim() || !formState.password.trim()) {
+      alert('Fill form details correctly')
+      event.preventDefault()
+      return
+    }
+    if (formState.password !== formState.confirmPassword) {
+      alert('password are diff')
+      event.preventDefault()
+      return
+    }
     alert(`Name: ${formState.fullName}\n
         Email: ${formState.email}\n
         Password: ${formState.password}\n
+        Remember Me: ${isChecked}\n
         submitted successfully`)
     event.preventDefault()
   }
 
   function handlePassword () {
-    showPassword('text')
+    showPassword(!password)
+  }
+
+  function handleCheckboxChange () {
+    changeChecked(!isChecked)
   }
 
   return (
@@ -66,29 +82,13 @@ function SignUpForm () {
       </div>
 
       <FieldName label="Password" />
-      <div className="inputBox">
+      <div className="inputBox password-input">
         <input
           className="inputText"
-          type="password"
+          type={password ? 'password' : 'text'}
           placeholder="Password"
-          name={password}
-          value={formState.value}
-          onChange={handleChange}
-        />
-
-        <button className="icon" onClick={handlePassword}>
-          <img src={hidden} alt="show password" />
-        </button>
-      </div>
-
-      <FieldName label="Confirm Password" />
-      <div className="inputBox">
-        <input
-          className="inputText"
-          type="password"
-          placeholder="Confirm Password"
-          name={password}
-          value={formState.value}
+          name="password"
+          value={formState.password}
           onChange={handleChange}
         />
 
@@ -96,7 +96,26 @@ function SignUpForm () {
           <img src={hidden} alt="show password" />
         </icon>
       </div>
-      <Checkbox name="Remember me" />
+
+      <FieldName label="Confirm Password" />
+      <div className="inputBox password-input">
+        <input
+          className="inputText"
+          type="password"
+          placeholder="Confirm Password"
+          name="confirmPassword"
+          value={formState.confirmPassword}
+          onChange={handleChange}
+        />
+
+        <icon className="icon" onClick={handlePassword}>
+          <img src={hidden} alt="show password" />
+        </icon>
+      </div>
+      <div>
+      <input type="checkBox" className="checkbox" name="rememberMe" checked={isChecked} onChange={handleCheckboxChange}/>
+      <span className="label">Remember Me</span>
+    </div>
       <Button name="Sign Up" />
     </form>
   )

@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import hidden from '../../../images/Vector.png'
 import '../../common//input/input.css'
 import '../../common/button/button.css'
-import Checkbox from '../../common/checkbox/checkbox'
 import FieldName from '../../common/field/field'
 import Button from '../../common/button/button'
 
@@ -13,6 +12,10 @@ function LoginForm () {
     email: '',
     password: ''
   })
+
+  const [passwordVisible, setPasswordVisible] = useState(false)
+
+  const [isChecked, setIsChecked] = useState(false)
 
   // onchange that is typing anything will change the formstate and set its value
   function handleChange (event) {
@@ -24,14 +27,21 @@ function LoginForm () {
 
   // ideally need to add these data to database
   function handleSubmit (event) {
-    alert(`Name: ${formState.email} Password: ${formState.password} submitted successfully`)
+    if (!formState.email.trim() || !formState.password.trim()) {
+      alert('Fill all details correctly')
+      event.preventDefault()
+      return
+    }
+    alert(`Name: ${formState.email} Password: ${formState.password} ${isChecked} submitted successfully`)
     event.preventDefault()
   }
 
-  const [password, showPassword] = useState('password')
-
   function handlePassword () {
-    showPassword('text')
+    setPasswordVisible(!passwordVisible)
+  }
+
+  function handleCheckboxChange () {
+    setIsChecked(!isChecked)
   }
 
   return (
@@ -40,9 +50,8 @@ function LoginForm () {
 
       <div className="inputBox">
         <input
-          className="inputText"
           type="text"
-          placeholder="Email"
+          placeholder="Email address"
           name="email"
           value={formState.email}
           onChange={handleChange}
@@ -50,21 +59,24 @@ function LoginForm () {
       </div>
 
       <FieldName label="Password" />
-      <div className="inputBox">
+      <div className="inputBox password-input">
         <input
           className="inputText"
-          type="password"
+          type={passwordVisible ? 'text' : 'password'}
           placeholder="Password"
-          name={password}
-          value={formState.value}
+          name="password"
+          value={formState.password}
           onChange={handleChange}
         />
 
-        <button className="icon" onClick={handlePassword}>
-          <img src={hidden} alt="show password" />
-        </button>
+        <icon className="icon" onClick={handlePassword}>
+          <img src={hidden} alt="show password"/>
+        </icon>
       </div>
-      <Checkbox name="Remember me" />
+      <div>
+      <input type="checkBox" className="checkbox" name="rememberMe" checked={isChecked} onChange={handleCheckboxChange}/>
+      <span className="label">Remember Me</span>
+    </div>
       <Button name="Log In" />
     </form>
   )
