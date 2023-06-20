@@ -1,40 +1,40 @@
-import '../../login/form/form.css';
-import { useState } from 'react';
-import hidden from '../../../images/Vector.png';
-import '../../login/form/input/input.css';
-import '../../login/form/button/button.css';
-import Checkbox from '../../login/form/checkbox/checkbox';
-import Button from '../../login/form/button/button';
-import FieldName from '../../login/form/field/field';
+import '../../login/form/form.css'
+import React, { useState } from 'react'
+import hidden from '../../../images/Vector.png'
+import '../../login/form/input/input.css'
+import '../../login/form/button/button.css'
+import Checkbox from '../../common/checkbox/checkbox'
+import Button from '../../login/form/button/button'
+import FieldName from '../../login/form/field/field'
 
-function SignUpForm() {
+function SignUpForm () {
   const [formState, setFormState] = useState({
     fullName: '',
     email: '',
     password: '',
-    confirmPassword: '',
-  });
+    confirmPassword: ''
+  })
 
-  function handleChange(event) {
+  const [password, showPassword] = useState('password')
+
+  function handleChange (event) {
     setFormState({
       ...formState,
-      [event.target.name]: event.target.value,
-    });
+      [event.target.name]: event.target.value
+    })
   }
 
-  //ideally need to add these data to database
-  function handleSubmit(event) {
+  // ideally need to add these data to database
+  function handleSubmit (event) {
     alert(`Name: ${formState.fullName}\n
         Email: ${formState.email}\n
         Password: ${formState.password}\n
-        submitted successfully`);
-    event.preventDefault();
+        submitted successfully`)
+    event.preventDefault()
   }
 
-  const [password, showPassword] = useState('password');
-
-  function handlePassword() {
-    showPassword('text');
+  function handlePassword () {
+    showPassword('text')
   }
 
   return (
@@ -76,7 +76,7 @@ function SignUpForm() {
           onChange={handleChange}
         />
 
-        <button className="icon" onMouse={handlePassword}>
+        <button className="icon" onClick={handlePassword}>
           <img src={hidden} alt="show password" />
         </button>
       </div>
@@ -92,14 +92,14 @@ function SignUpForm() {
           onChange={handleChange}
         />
 
-        <button className="icon" onMouse={handlePassword}>
+        <icon className="icon" onClick={handlePassword}>
           <img src={hidden} alt="show password" />
-        </button>
+        </icon>
       </div>
       <Checkbox name="Remember me" />
       <Button name="Sign Up" />
     </form>
-  );
+  )
 }
 
-export default SignUpForm;
+export default SignUpForm

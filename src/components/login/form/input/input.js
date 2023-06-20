@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import hidden from '../../../../images/Vector.png';
-import './input.css';
-function Input(props) {
-  const [password, showPassword] = useState('password');
+import React, { useState } from 'react'
+import hidden from '../../../../images/Vector.png'
+import './input.css'
+function Input (props) {
+  const [password, showPassword] = useState('password')
 
-  function handlePassword() {
-    showPassword('text');
+  function handlePassword () {
+    showPassword('text')
   }
   return (
     <div className="inputBox">
@@ -21,7 +21,7 @@ function Input(props) {
         </button>
       )}
     </div>
-  );
+  )
 }
 
-export default Input;
+export default Input
