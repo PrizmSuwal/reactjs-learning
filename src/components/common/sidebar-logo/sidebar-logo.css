@@ -1,0 +1,26 @@
+.sidebarLogo {
+  display: flex;
+  align-items: center;
+}
+
+.sidebarLogo-img {
+  height: 32px;
+  width: 32px;
+  margin-left: 32px;
+  padding-top: 3px;
+}
+
+.sidebarLogo-description {
+  border-radius: 0px;
+  color: #a4a6b3;
+  opacity: 0.7;
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.4px;
+  color: #a4a6b3;
+  padding-top: 3px;
+  opacity: 0.7;
+  margin-left: 12px;
+}

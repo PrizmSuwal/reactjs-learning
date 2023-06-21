@@ -1,11 +1,11 @@
-import './form.css';
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import hidden from '../../../images/Vector.png';
+import './form.css';
 import '../../common//input/input.css';
 import '../../common/button/button.css';
 import FieldName from '../../common/field/field';
 import Button from '../../common/button/button';
-import { useSelector, useDispatch } from 'react-redux';
 import { setPasswordVisibility, setRememberMe } from '../../../reducers/click.reducer';
 import { resetLoginForm, updateFormField } from '../../../reducers/form.reducer';
 
@@ -25,6 +25,7 @@ function LoginForm() {
     alert(`Name: ${email} Password: ${password} ${rememberMeState} submitted successfully`);
     event.preventDefault();
     dispatch(resetLoginForm());
+    window.location.href = '/dashboard';
   }
 
   return (

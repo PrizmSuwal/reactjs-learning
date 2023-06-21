@@ -1,0 +1,18 @@
+.sidebarBody {
+  height: 608px;
+  width: 255px;
+  left: 0px;
+  top: 0px;
+  border-radius: 0px;
+  background: #363740;
+}
+
+.sidebar {
+  width: 255px;
+  background: #363740;
+  height: 100vh;
+}
+
+.divider {
+  border: 1px solid #dfe0eb;
+}

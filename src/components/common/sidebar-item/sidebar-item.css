@@ -1,0 +1,25 @@
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  width: 254.99998474121094px;
+}
+
+.sidebarItem-icon {
+  height: 10.67px;
+  width: 16px;
+  margin-left: 32px;
+}
+
+.sidebarItem-title {
+  height: 20px;
+  width: 159px;
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  color: #dde2ff;
+  margin-left: 24px;
+}

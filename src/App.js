@@ -1,10 +1,12 @@
-import './App.css';
+import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import './App.css';
 import Login from './components/login/login';
 import SignUp from './components/signup/signup';
-import React from 'react';
+import Ticket from './components/tickets/ticket';
 import store from './store/configureStore';
-import { Provider } from 'react-redux';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           <Route exact path="/" element={<Login />} />
           <Route exact path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/dashboard" element={<Ticket />} />
         </Routes>
       </Router>
     </Provider>

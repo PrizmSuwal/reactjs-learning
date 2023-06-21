@@ -1,11 +1,11 @@
-import '../../login/form/form.css';
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import hidden from '../../../images/Vector.png';
+import '../../login/form/form.css';
 import '../../common/input/input.css';
 import '../../common/button/button.css';
 import Button from '../../common/button/button';
 import FieldName from '../../common/field/field';
-import { useSelector, useDispatch } from 'react-redux';
 import { setConfirmPasswordVisibility, setPasswordVisibility, setRememberMe } from '../../../reducers/click.reducer';
 import { updateFormField } from '../../../reducers/form.reducer';
 
