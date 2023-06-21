@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-function PropsExample (props) {
+function PropsExample(props) {
   return (
     <div>
       <h1>
@@ -9,7 +9,7 @@ function PropsExample (props) {
       </h1>
       {props.children}
     </div>
-  )
+  );
 }
 
-export default PropsExample
+export default PropsExample;

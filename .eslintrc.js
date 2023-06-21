@@ -19,6 +19,10 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react', "eslint-plugin-eslint-plugin"],
-  rules: {}
-}
+  plugins: ['react', 'eslint-plugin-eslint-plugin'],
+  rules: {
+    semi: 'off',
+    'react/prop-types': 'off',
+    'space-before-function-paren': 'off'
+  }
+};

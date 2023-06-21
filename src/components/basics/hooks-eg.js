@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-function HooksExample () {
-  const [count, setCount] = useState(0)
+function HooksExample() {
+  const [count, setCount] = useState(0);
 
-  function handleCLick () {
-    setCount(count + 1)
+  function handleCLick() {
+    setCount(count + 1);
   }
 
   return (
@@ -12,7 +12,7 @@ function HooksExample () {
       <h1> Calling from Hooks </h1>
       <button onClick={handleCLick}> {count}</button>
     </div>
-  )
+  );
 }
 
-export default HooksExample
+export default HooksExample;

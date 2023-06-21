@@ -1,7 +1,7 @@
-import './footer.css'
-import React from 'react'
+import './footer.css';
+import React from 'react';
 
-function FooterDescription (props) {
+function FooterDescription(props) {
   return (
     <div className="description">
       <span>
@@ -12,7 +12,7 @@ function FooterDescription (props) {
         </a>
       </span>
     </div>
-  )
+  );
 }
 
-export default FooterDescription
+export default FooterDescription;

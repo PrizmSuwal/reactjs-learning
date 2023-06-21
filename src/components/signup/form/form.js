@@ -1,56 +1,56 @@
-import '../../login/form/form.css'
-import React, { useState } from 'react'
-import hidden from '../../../images/Vector.png'
-import '../../common/input/input.css'
-import '../../common/button/button.css'
-import Button from '../../common/button/button'
-import FieldName from '../../common/field/field'
+import '../../login/form/form.css';
+import React, { useState } from 'react';
+import hidden from '../../../images/Vector.png';
+import '../../common/input/input.css';
+import '../../common/button/button.css';
+import Button from '../../common/button/button';
+import FieldName from '../../common/field/field';
 
-function SignUpForm () {
+function SignUpForm() {
   const [formState, setFormState] = useState({
     fullName: '',
     email: '',
     password: '',
     confirmPassword: ''
-  })
+  });
 
-  const [password, showPassword] = useState(true)
+  const [password, showPassword] = useState(true);
 
-  const [isChecked, changeChecked] = useState(false)
+  const [isChecked, changeChecked] = useState(false);
 
-  function handleChange (event) {
+  function handleChange(event) {
     setFormState({
       ...formState,
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   // ideally need to add these data to database
-  function handleSubmit (event) {
+  function handleSubmit(event) {
     if (!formState.fullName.trim() || !formState.email.trim() || !formState.password.trim()) {
-      alert('Fill form details correctly')
-      event.preventDefault()
-      return
+      alert('Fill form details correctly');
+      event.preventDefault();
+      return;
     }
     if (formState.password !== formState.confirmPassword) {
-      alert('password are diff')
-      event.preventDefault()
-      return
+      alert('password are diff');
+      event.preventDefault();
+      return;
     }
     alert(`Name: ${formState.fullName}\n
         Email: ${formState.email}\n
         Password: ${formState.password}\n
         Remember Me: ${isChecked}\n
-        submitted successfully`)
-    event.preventDefault()
+        submitted successfully`);
+    event.preventDefault();
   }
 
-  function handlePassword () {
-    showPassword(!password)
+  function handlePassword() {
+    showPassword(!password);
   }
 
-  function handleCheckboxChange () {
-    changeChecked(!isChecked)
+  function handleCheckboxChange() {
+    changeChecked(!isChecked);
   }
 
   return (
@@ -113,12 +113,12 @@ function SignUpForm () {
         </icon>
       </div>
       <div>
-      <input type="checkBox" className="checkbox" name="rememberMe" checked={isChecked} onChange={handleCheckboxChange}/>
-      <span className="label">Remember Me</span>
-    </div>
+        <input type="checkBox" className="checkbox" name="rememberMe" checked={isChecked} onChange={handleCheckboxChange} />
+        <span className="label">Remember Me</span>
+      </div>
       <Button name="Sign Up" />
     </form>
-  )
+  );
 }
 
-export default SignUpForm
+export default SignUpForm;
