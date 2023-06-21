@@ -1,47 +1,30 @@
 import './form.css';
-import React, { useState } from 'react';
+import React from 'react';
 import hidden from '../../../images/Vector.png';
 import '../../common//input/input.css';
 import '../../common/button/button.css';
 import FieldName from '../../common/field/field';
 import Button from '../../common/button/button';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPasswordVisibility, setRememberMe } from '../../../reducers/click.reducer';
+import { resetLoginForm, updateFormField } from '../../../reducers/form.reducer';
 
 function LoginForm() {
-  // here initially form state is set to null
-  const [formState, setFormState] = useState({
-    email: '',
-    password: ''
-  });
-
-  const [passwordVisible, setPasswordVisible] = useState(false);
-
-  const [isChecked, setIsChecked] = useState(false);
-
-  // onchange that is typing anything will change the formstate and set its value
-  function handleChange(event) {
-    setFormState({
-      ...formState,
-      [event.target.name]: event.target.value
-    });
-  }
+  const { email, password } = useSelector((state) => state.form.login);
+  const passwordVisibilityState = useSelector((state) => state.click.password);
+  const rememberMeState = useSelector((state) => state.click.rememberMe);
+  const dispatch = useDispatch();
 
   // ideally need to add these data to database
   function handleSubmit(event) {
-    if (!formState.email.trim() || !formState.password.trim()) {
+    if (!email.trim() || !password.trim()) {
       alert('Fill all details correctly');
       event.preventDefault();
       return;
     }
-    alert(`Name: ${formState.email} Password: ${formState.password} ${isChecked} submitted successfully`);
+    alert(`Name: ${email} Password: ${password} ${rememberMeState} submitted successfully`);
     event.preventDefault();
-  }
-
-  function handlePassword() {
-    setPasswordVisible(!passwordVisible);
-  }
-
-  function handleCheckboxChange() {
-    setIsChecked(!isChecked);
+    dispatch(resetLoginForm());
   }
 
   return (
@@ -49,26 +32,42 @@ function LoginForm() {
       <FieldName label="Email" />
 
       <div className="inputBox">
-        <input type="text" placeholder="Email address" name="email" value={formState.email} onChange={handleChange} />
+        <input
+          type="text"
+          placeholder="Email address"
+          name="email"
+          value={email}
+          onChange={(event) =>
+            dispatch(updateFormField({ formName: 'login', name: event.target.name, value: event.target.value }))
+          }
+        />
       </div>
 
       <FieldName label="Password" />
       <div className="inputBox password-input">
         <input
           className="inputText"
-          type={passwordVisible ? 'text' : 'password'}
+          type={passwordVisibilityState ? 'password' : 'text'}
           placeholder="Password"
           name="password"
-          value={formState.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(event) =>
+            dispatch(updateFormField({ formName: 'login', name: event.target.name, value: event.target.value }))
+          }
         />
 
-        <icon className="icon" onClick={handlePassword}>
+        <icon className="icon" onClick={() => dispatch(setPasswordVisibility())}>
           <img src={hidden} alt="show password" />
         </icon>
       </div>
       <div>
-        <input type="checkBox" className="checkbox" name="rememberMe" checked={isChecked} onChange={handleCheckboxChange} />
+        <input
+          type="checkBox"
+          className="checkbox"
+          name="rememberMe"
+          checked={rememberMeState}
+          onChange={() => dispatch(setRememberMe())}
+        />
         <span className="label">Remember Me</span>
       </div>
       <Button name="Log In" />

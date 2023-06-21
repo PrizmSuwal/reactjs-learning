@@ -1,56 +1,41 @@
 import '../../login/form/form.css';
-import React, { useState } from 'react';
+import React from 'react';
 import hidden from '../../../images/Vector.png';
 import '../../common/input/input.css';
 import '../../common/button/button.css';
 import Button from '../../common/button/button';
 import FieldName from '../../common/field/field';
+import { useSelector, useDispatch } from 'react-redux';
+import { setConfirmPasswordVisibility, setPasswordVisibility, setRememberMe } from '../../../reducers/click.reducer';
+import { updateFormField } from '../../../reducers/form.reducer';
 
 function SignUpForm() {
-  const [formState, setFormState] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
+  const { fullName, email, password, confirmPassword } = useSelector((state) => state.form.signup);
 
-  const [password, showPassword] = useState(true);
+  const passwordVisibilityState = useSelector((state) => state.click.password);
+  const confirmPasswordVisibilityState = useSelector((state) => state.click.confirmPassword);
+  const rememberMeState = useSelector((state) => state.click.rememberMe);
 
-  const [isChecked, changeChecked] = useState(false);
-
-  function handleChange(event) {
-    setFormState({
-      ...formState,
-      [event.target.name]: event.target.value
-    });
-  }
+  const dispatch = useDispatch();
 
   // ideally need to add these data to database
   function handleSubmit(event) {
-    if (!formState.fullName.trim() || !formState.email.trim() || !formState.password.trim()) {
+    if (!fullName.trim() || !email.trim() || !password.trim()) {
       alert('Fill form details correctly');
       event.preventDefault();
       return;
     }
-    if (formState.password !== formState.confirmPassword) {
-      alert('password are diff');
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
       event.preventDefault();
       return;
     }
-    alert(`Name: ${formState.fullName}\n
-        Email: ${formState.email}\n
-        Password: ${formState.password}\n
-        Remember Me: ${isChecked}\n
+    alert(`Name: ${fullName}\n
+        Email: ${email}\n
+        Password: ${password}\n
+        Remember Me: ${rememberMeState}\n
         submitted successfully`);
     event.preventDefault();
-  }
-
-  function handlePassword() {
-    showPassword(!password);
-  }
-
-  function handleCheckboxChange() {
-    changeChecked(!isChecked);
   }
 
   return (
@@ -63,8 +48,10 @@ function SignUpForm() {
           type="text"
           placeholder="Full name"
           name="fullName"
-          value={formState.fullName}
-          onChange={handleChange}
+          value={fullName}
+          onChange={(event) =>
+            dispatch(updateFormField({ formName: 'signup', name: event.target.name, value: event.target.value }))
+          }
         />
       </div>
 
@@ -76,8 +63,10 @@ function SignUpForm() {
           type="text"
           placeholder="Email"
           name="email"
-          value={formState.email}
-          onChange={handleChange}
+          value={email}
+          onChange={(event) =>
+            dispatch(updateFormField({ formName: 'signup', name: event.target.name, value: event.target.value }))
+          }
         />
       </div>
 
@@ -85,14 +74,16 @@ function SignUpForm() {
       <div className="inputBox password-input">
         <input
           className="inputText"
-          type={password ? 'password' : 'text'}
+          type={passwordVisibilityState ? 'password' : 'text'}
           placeholder="Password"
           name="password"
-          value={formState.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(event) =>
+            dispatch(updateFormField({ formName: 'signup', name: event.target.name, value: event.target.value }))
+          }
         />
 
-        <icon className="icon" onClick={handlePassword}>
+        <icon className="icon" onClick={() => dispatch(setPasswordVisibility())}>
           <img src={hidden} alt="show password" />
         </icon>
       </div>
@@ -101,19 +92,27 @@ function SignUpForm() {
       <div className="inputBox password-input">
         <input
           className="inputText"
-          type="password"
+          type={confirmPasswordVisibilityState ? 'password' : 'text'}
           placeholder="Confirm Password"
           name="confirmPassword"
-          value={formState.confirmPassword}
-          onChange={handleChange}
+          value={confirmPassword}
+          onChange={(event) =>
+            dispatch(updateFormField({ formName: 'signup', name: event.target.name, value: event.target.value }))
+          }
         />
 
-        <icon className="icon" onClick={handlePassword}>
+        <icon className="icon" onClick={() => dispatch(setConfirmPasswordVisibility())}>
           <img src={hidden} alt="show password" />
         </icon>
       </div>
       <div>
-        <input type="checkBox" className="checkbox" name="rememberMe" checked={isChecked} onChange={handleCheckboxChange} />
+        <input
+          type="checkBox"
+          className="checkbox"
+          name="rememberMe"
+          checked={rememberMeState}
+          onChange={() => dispatch(setRememberMe())}
+        />
         <span className="label">Remember Me</span>
       </div>
       <Button name="Sign Up" />
