@@ -6,13 +6,10 @@ import '../../common//input/input.css';
 import '../../common/button/button.css';
 import FieldName from '../../common/field/field';
 import Button from '../../common/button/button';
-import { setPasswordVisibility, setRememberMe } from '../../../reducers/click.reducer';
-import { resetLoginForm, updateFormField } from '../../../reducers/form.reducer';
+import { resetLoginForm, setPasswordVisibility, setRememberMe, updateLoginForm } from '../../../reducers/login.reducer';
 
 function LoginForm() {
-  const { email, password } = useSelector((state) => state.form.login);
-  const passwordVisibilityState = useSelector((state) => state.click.password);
-  const rememberMeState = useSelector((state) => state.click.rememberMe);
+  const { email, password, passwordVisibility, rememberMe } = useSelector((state) => state.loginForm);
   const dispatch = useDispatch();
 
   // ideally need to add these data to database
@@ -22,7 +19,7 @@ function LoginForm() {
       event.preventDefault();
       return;
     }
-    alert(`Name: ${email} Password: ${password} ${rememberMeState} submitted successfully`);
+    alert(`Name: ${email} Password: ${password} ${rememberMe} submitted successfully`);
     event.preventDefault();
     dispatch(resetLoginForm());
     window.location.href = '/dashboard';
@@ -38,9 +35,7 @@ function LoginForm() {
           placeholder="Email address"
           name="email"
           value={email}
-          onChange={(event) =>
-            dispatch(updateFormField({ formName: 'login', name: event.target.name, value: event.target.value }))
-          }
+          onChange={(event) => dispatch(updateLoginForm({ name: event.target.name, value: event.target.value }))}
         />
       </div>
 
@@ -48,13 +43,11 @@ function LoginForm() {
       <div className="inputBox password-input">
         <input
           className="inputText"
-          type={passwordVisibilityState ? 'password' : 'text'}
+          type={passwordVisibility ? 'password' : 'text'}
           placeholder="Password"
           name="password"
           value={password}
-          onChange={(event) =>
-            dispatch(updateFormField({ formName: 'login', name: event.target.name, value: event.target.value }))
-          }
+          onChange={(event) => dispatch(updateLoginForm({ name: event.target.name, value: event.target.value }))}
         />
 
         <icon className="icon" onClick={() => dispatch(setPasswordVisibility())}>
@@ -66,7 +59,7 @@ function LoginForm() {
           type="checkBox"
           className="checkbox"
           name="rememberMe"
-          checked={rememberMeState}
+          checked={rememberMe}
           onChange={() => dispatch(setRememberMe())}
         />
         <span className="label">Remember Me</span>

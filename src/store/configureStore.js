@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import clickReducer from '../reducers/click.reducer';
-import formReducer from '../reducers/form.reducer';
+import loginReducer from '../reducers/login.reducer';
+import signupReducer from '../reducers/signup.reducer';
 
 export default configureStore({
   reducer: {
-    click: clickReducer,
-    form: formReducer
+    loginForm: loginReducer,
+    signUpForm: signupReducer
   }
 });
