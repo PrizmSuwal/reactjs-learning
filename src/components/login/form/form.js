@@ -1,27 +1,29 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import hidden from '../../../images/Vector.png';
 import './form.css';
 import '../../common//input/input.css';
 import '../../common/button/button.css';
 import FieldName from '../../common/field/field';
 import Button from '../../common/button/button';
-import { resetLoginForm, setPasswordVisibility, setRememberMe, updateLoginForm } from '../../../reducers/login.reducer';
+import { useCheckBoxInput } from '../../../hooks/useCheckboxInput';
+import { useFormInput } from '../../../hooks/useFormInput';
+import { usePasswordVisibility } from '../../../hooks/usePasswordVisibility';
 
 function LoginForm() {
-  const { email, password, passwordVisibility, rememberMe } = useSelector((state) => state.loginForm);
-  const dispatch = useDispatch();
+  const email = useFormInput();
+  const password = useFormInput();
+  const passwordVisibility = usePasswordVisibility();
+  const checkBox = useCheckBoxInput();
 
   // ideally need to add these data to database
   function handleSubmit(event) {
-    if (!email.trim() || !password.trim()) {
+    if (!email.value.trim() || !password.value.trim()) {
       alert('Fill all details correctly');
       event.preventDefault();
       return;
     }
-    alert(`Name: ${email} Password: ${password} ${rememberMe} submitted successfully`);
+    alert(`Name: ${email.value} Password: ${password.value} ${checkBox.checked} submitted successfully`);
     event.preventDefault();
-    dispatch(resetLoginForm());
     window.location.href = '/dashboard';
   }
 
@@ -30,38 +32,25 @@ function LoginForm() {
       <FieldName label="Email" />
 
       <div className="inputBox">
-        <input
-          type="text"
-          placeholder="Email address"
-          name="email"
-          value={email}
-          onChange={(event) => dispatch(updateLoginForm({ name: event.target.name, value: event.target.value }))}
-        />
+        <input type="text" placeholder="Email address" name="email" {...email} />
       </div>
 
       <FieldName label="Password" />
       <div className="inputBox password-input">
         <input
           className="inputText"
-          type={passwordVisibility ? 'password' : 'text'}
+          type={passwordVisibility.state ? 'password' : 'text'}
           placeholder="Password"
           name="password"
-          value={password}
-          onChange={(event) => dispatch(updateLoginForm({ name: event.target.name, value: event.target.value }))}
+          {...password}
         />
 
-        <icon className="icon" onClick={() => dispatch(setPasswordVisibility())}>
+        <icon className="icon" onClick={passwordVisibility.onClick}>
           <img src={hidden} alt="show password" />
         </icon>
       </div>
       <div>
-        <input
-          type="checkBox"
-          className="checkbox"
-          name="rememberMe"
-          checked={rememberMe}
-          onChange={() => dispatch(setRememberMe())}
-        />
+        <input type="checkBox" className="checkbox" name="rememberMe" {...checkBox} />
         <span className="label">Remember Me</span>
       </div>
       <Button name="Log In" />
