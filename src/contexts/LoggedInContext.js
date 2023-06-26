@@ -1,11 +1,23 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 const LoggedInContext = createContext();
 
 const LoggedInProvider = ({ children }) => {
   const [userName, setUserName] = useState('');
 
-  return <LoggedInContext.Provider value={{ userName, setUserName }}>{children}</LoggedInContext.Provider>;
+  useEffect(() => {
+    const storedUserName = localStorage.getItem('userName');
+    if (storedUserName) {
+      setUserName(storedUserName);
+    }
+  }, []);
+
+  const updateUserName = (name) => {
+    setUserName(name);
+    localStorage.setItem('userName', name);
+  };
+
+  return <LoggedInContext.Provider value={{ userName, setUserName: updateUserName }}>{children}</LoggedInContext.Provider>;
 };
 
 export { LoggedInContext, LoggedInProvider };
