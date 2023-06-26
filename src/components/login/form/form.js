@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import hidden from 'images/Vector.png';
 import 'components/login/form/form.css';
 import 'components/common//input/input.css';
@@ -14,6 +15,7 @@ function LoginForm() {
   const password = useFormInput();
   const passwordVisibility = usePasswordVisibility();
   const checkBox = useCheckBoxInput();
+  const navigate = useNavigate();
 
   // ideally need to add these data to database
   function handleSubmit(event) {
@@ -24,7 +26,7 @@ function LoginForm() {
     }
     alert(`Name: ${email.value} Password: ${password.value} ${checkBox.checked} submitted successfully`);
     event.preventDefault();
-    window.location.href = '/dashboard';
+    navigate(`/dashboard/${email.value}`);
   }
 
   return (

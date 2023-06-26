@@ -14,7 +14,7 @@ function Sidebar() {
         <SidebarItem itemName="Contact" />
         <SidebarItem itemName="Agents" />
         <SidebarItem itemName="Articles" />
-        <hr className="divider" />
+        <hr className="horizontal-divider" />
         <SidebarItem itemName="Settings" />
         <SidebarItem itemName="Subscription" />
       </div>

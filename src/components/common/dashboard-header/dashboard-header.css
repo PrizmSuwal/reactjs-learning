@@ -1,0 +1,81 @@
+.heading {
+  width: 1122px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.title {
+  width: 771px;
+  height: 34px;
+}
+
+.title h1 {
+  color: #252733;
+  font-size: 24px;
+  font-family: Mulish;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-align: left;
+}
+
+.header-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: #c5c7cd;
+  margin-top: 26px;
+  margin-left: 18px;
+}
+
+.divider {
+  width: 0px;
+  height: 32px;
+  color: #dfe0eb;
+  margin: 17px 32px 0px;
+}
+
+.username {
+  width: 109px;
+  height: 18px;
+  color: #252733;
+  text-align: right;
+  font-size: 14px;
+  font-family: Mulish;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  margin: 26px 0px;
+}
+
+.pp-circle {
+  width: 44px;
+  height: 44px;
+  margin-left: -3px;
+  margin-top: -3px;
+  border-radius: 44px;
+  border: 1.5px solid var(--grayscale-divider, #dfe0eb);
+}
+
+.pp {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  margin-left: 2px;
+  background: url('/src/images/profile-pic.png'), lightgray 50% / cover no-repeat;
+  margin-top: 2px;
+}
+
+.ellipse {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: #c4c4c4;
+  margin-top: 15px;
+  margin-left: 10px;
+}
