@@ -1,13 +1,13 @@
 import React from 'react';
-import hidden from '../../../images/Vector.png';
-import '../../login/form/form.css';
-import '../../common/input/input.css';
-import '../../common/button/button.css';
-import Button from '../../common/button/button';
-import FieldName from '../../common/field/field';
-import { useCheckBoxInput } from '../../../hooks/useCheckboxInput';
-import { useFormInput } from '../../../hooks/useFormInput';
-import { usePasswordVisibility } from '../../../hooks/usePasswordVisibility';
+import hidden from 'images/Vector.png';
+import 'components/login/form/form.css';
+import 'components/common/input/input.css';
+import 'components/common/button/button.css';
+import Button from 'components/common/button/button';
+import FieldName from 'components/common/field/field';
+import { useFormInput } from 'hooks/useFormInput';
+import { usePasswordVisibility } from 'hooks/usePasswordVisibility';
+import { useCheckBoxInput } from 'hooks/useCheckboxInput';
 
 function SignUpForm() {
   const fullName = useFormInput();
@@ -87,12 +87,7 @@ submitted successfully`);
         </icon>
       </div>
       <div>
-        <input
-          type="checkBox"
-          className="checkbox"
-          name="rememberMe"
-          {...checkBox}
-        />
+        <input type="checkBox" className="checkbox" name="rememberMe" {...checkBox} />
         <span className="label">Remember Me</span>
       </div>
       <Button name="Sign Up" />

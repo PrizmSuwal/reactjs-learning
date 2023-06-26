@@ -1,5 +1,5 @@
-import './footer.css';
 import React from 'react';
+import 'components/common/description/footer.css';
 
 function FooterDescription(props) {
   return (

@@ -1,6 +1,6 @@
-import logo from '../../../images/logo.png';
-import './logo.css';
 import React from 'react';
+import logo from 'images/logo.png';
+import 'components/common/logo/logo.css';
 
 function LogoDisplay() {
   return (

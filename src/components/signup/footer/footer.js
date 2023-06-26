@@ -1,5 +1,5 @@
-import FooterDescription from '../../common/description/footer';
 import React from 'react';
+import FooterDescription from 'components/common/description/footer';
 
 export default function SignUpFooter() {
   return (

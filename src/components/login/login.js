@@ -1,8 +1,8 @@
-import './login.css';
-import LoginForm from './form/form';
-import LoginHeader from './header/header';
-import LoginFooter from './footer/footer';
 import React from 'react';
+import 'components/login/login.css';
+import LoginForm from 'components/login/form/form';
+import LoginHeader from 'components/login/header/header';
+import LoginFooter from 'components/login/footer/footer';
 
 function Login() {
   return (

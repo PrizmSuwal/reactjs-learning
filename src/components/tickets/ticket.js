@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Sidebar from '../common/sidebar/sidebar';
+import Sidebar from 'components/common/sidebar/sidebar';
 
 function Ticket() {
   return (

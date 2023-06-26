@@ -1,7 +1,7 @@
 import React from 'react';
-import './sidebar.css';
-import SidebarLogo from '../sidebar-logo/sidebar-logo';
-import SidebarItem from '../sidebar-item/sidebar-item';
+import 'components/common/sidebar/sidebar.css';
+import SidebarLogo from 'components/common/sidebar-logo/sidebar-logo';
+import SidebarItem from 'components/common/sidebar-item/sidebar-item';
 
 function Sidebar() {
   return (

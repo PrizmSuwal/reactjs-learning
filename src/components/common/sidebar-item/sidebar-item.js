@@ -1,6 +1,6 @@
 import React from 'react';
-import './sidebar-item.css';
-import ticketIcon from '../../../images/ticketicon.png';
+import ticketIcon from 'images/ticketicon.png';
+import 'components/common/sidebar-item/sidebar-item.css';
 
 function SidebarItem(props) {
   return (

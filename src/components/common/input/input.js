@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import hidden from '../../../../images/Vector.png';
-import './input.css';
+import hidden from 'images/Vector.png';
+import 'components/common/input/input.css';
+
 function Input(props) {
   const [password, showPassword] = useState('password');
 

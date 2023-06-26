@@ -1,13 +1,13 @@
 import React from 'react';
-import hidden from '../../../images/Vector.png';
-import './form.css';
-import '../../common//input/input.css';
-import '../../common/button/button.css';
-import FieldName from '../../common/field/field';
-import Button from '../../common/button/button';
-import { useCheckBoxInput } from '../../../hooks/useCheckboxInput';
-import { useFormInput } from '../../../hooks/useFormInput';
-import { usePasswordVisibility } from '../../../hooks/usePasswordVisibility';
+import hidden from 'images/Vector.png';
+import 'components/login/form/form.css';
+import 'components/common//input/input.css';
+import 'components/common/button/button.css';
+import FieldName from 'components/common/field/field';
+import Button from 'components/common/button/button';
+import { useCheckBoxInput } from 'hooks/useCheckboxInput';
+import { useFormInput } from 'hooks/useFormInput';
+import { usePasswordVisibility } from 'hooks/usePasswordVisibility';
 
 function LoginForm() {
   const email = useFormInput();

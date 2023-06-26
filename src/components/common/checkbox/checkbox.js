@@ -1,6 +1,7 @@
-import './checkbox.css';
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import 'components/common/checkbox/checkbox.css';
+
 function Checkbox(props) {
   const [isChecked, setIsChecked] = useState(false);
 

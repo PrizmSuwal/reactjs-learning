@@ -1,8 +1,8 @@
-import '../login/form/form.css';
-import SignUpFooter from './footer/footer';
-import SignUpHeader from './header/header';
-import SignUpForm from './form/form';
 import React from 'react';
+import 'components/login/form/form.css';
+import SignUpFooter from 'components/signup/footer/footer';
+import SignUpHeader from 'components/signup/header/header';
+import SignUpForm from 'components/signup/form/form';
 
 function SignUp() {
   return (
