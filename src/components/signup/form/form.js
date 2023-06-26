@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import hidden from 'images/Vector.png';
 import 'components/login/form/form.css';
 import 'components/common/input/input.css';
 import 'components/common/button/button.css';
 import Button from 'components/common/button/button';
 import FieldName from 'components/common/field/field';
+import { LoggedInContext } from 'contexts/LoggedInContext';
 import { useFormInput } from 'hooks/useFormInput';
 import { usePasswordVisibility } from 'hooks/usePasswordVisibility';
 import { useCheckBoxInput } from 'hooks/useCheckboxInput';
@@ -16,6 +18,8 @@ function SignUpForm() {
   const confirmPassword = useFormInput();
   const passwordVisibility = usePasswordVisibility();
   const checkBox = useCheckBoxInput();
+  const navigate = useNavigate();
+  const { setUserName } = useContext(LoggedInContext);
 
   // ideally need to add these data to database
   function handleSubmit(event) {
@@ -30,7 +34,8 @@ function SignUpForm() {
       return;
     }
     if (checkBox.checked) {
-      window.location.href = '/dashboard';
+      setUserName(fullName.value);
+      navigate('/dashboard');
       event.preventDefault();
       return;
     }
@@ -40,7 +45,7 @@ Password: ${password.value}\n
 Remember Me: ${checkBox.checked}\n
 submitted successfully`);
     event.preventDefault();
-    window.location.href = '/login';
+    navigate('/login');
   }
 
   return (

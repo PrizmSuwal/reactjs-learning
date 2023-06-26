@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from 'components/login/login';
 import SignUp from 'components/signup/signup';
 import Ticket from 'components/tickets/ticket';
-import LoggedInContext from 'contexts/LoggedInContext';
+import { LoggedInProvider } from 'contexts/LoggedInContext';
 
 function App() {
-  const [userName, setUserName] = useState('');
-
   return (
-    <LoggedInContext.Provider value={{ userName, setUserName }}>
+    <LoggedInProvider>
       <Router>
         <Routes>
           <Route exact path="/" element={<Login />} />
@@ -18,7 +16,7 @@ function App() {
           <Route path="/dashboard" element={<Ticket />} />
         </Routes>
       </Router>
-    </LoggedInContext.Provider>
+    </LoggedInProvider>
   );
 }
 

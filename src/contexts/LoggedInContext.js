@@ -1,5 +1,11 @@
-import { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
 const LoggedInContext = createContext();
 
-export default LoggedInContext;
+const LoggedInProvider = ({ children }) => {
+  const [userName, setUserName] = useState('');
+
+  return <LoggedInContext.Provider value={{ userName, setUserName }}>{children}</LoggedInContext.Provider>;
+};
+
+export { LoggedInContext, LoggedInProvider };
