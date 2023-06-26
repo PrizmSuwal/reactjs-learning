@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import 'components/tickets/ticket.css';
 import Sidebar from 'components/common/sidebar/sidebar';
 import DashboardHeader from 'components/common/dashboard-header/dashboard-header';
-import { useParams } from 'react-router-dom';
+import LoggedInContext from 'contexts/LoggedInContext';
 
 function Ticket() {
-  const { username } = useParams();
+  const { userName } = useContext(LoggedInContext);
   return (
     <div className="ticket">
       <Sidebar />
-      <DashboardHeader title="Ticket" username={username} />
+      <DashboardHeader title="Tickets" username={userName} />
     </div>
   );
 }

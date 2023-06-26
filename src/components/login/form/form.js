@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import hidden from 'images/Vector.png';
 import 'components/login/form/form.css';
@@ -6,6 +6,7 @@ import 'components/common//input/input.css';
 import 'components/common/button/button.css';
 import FieldName from 'components/common/field/field';
 import Button from 'components/common/button/button';
+import LoggedInContext from 'contexts/LoggedInContext';
 import { useCheckBoxInput } from 'hooks/useCheckboxInput';
 import { useFormInput } from 'hooks/useFormInput';
 import { usePasswordVisibility } from 'hooks/usePasswordVisibility';
@@ -16,6 +17,7 @@ function LoginForm() {
   const passwordVisibility = usePasswordVisibility();
   const checkBox = useCheckBoxInput();
   const navigate = useNavigate();
+  const { setUserName } = useContext(LoggedInContext);
 
   // ideally need to add these data to database
   function handleSubmit(event) {
@@ -26,7 +28,8 @@ function LoginForm() {
     }
     alert(`Name: ${email.value} Password: ${password.value} ${checkBox.checked} submitted successfully`);
     event.preventDefault();
-    navigate(`/dashboard/${email.value}`);
+    setUserName(email.value);
+    navigate('/dashboard');
   }
 
   return (
