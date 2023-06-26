@@ -14,7 +14,7 @@ export const loginForm = createSlice({
       state[name] = value;
     },
     setPasswordVisibility: (state) => {
-      state.password = !state.password;
+      state.passwordVisibility = !state.passwordVisibility;
     },
     setRememberMe: (state) => {
       state.rememberMe = !state.rememberMe;
