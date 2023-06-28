@@ -3,14 +3,19 @@ import 'components/tickets/ticket.css';
 import Sidebar from 'components/common/sidebar/sidebar';
 import DashboardHeader from 'components/common/dashboard-header/dashboard-header';
 import { LoggedInContext } from 'contexts/LoggedInContext';
+import DashboardContent from './content/content';
 
 function Ticket() {
   const { userName } = useContext(LoggedInContext);
 
+  console.log(userName);
   return (
     <div className="ticket">
       <Sidebar />
-      <DashboardHeader title="Tickets" username={userName} />
+      <div className="ticket-body">
+        <DashboardHeader title="Tickets" username={userName} />
+        <DashboardContent />
+      </div>
     </div>
   );
 }

@@ -1,15 +1,10 @@
 .heading {
-  width: 1122px;
-  height: 44px;
-  flex-shrink: 0;
   display: flex;
   flex-direction: row;
-  margin-top: 30px;
-  margin-left: 30px;
 }
 
 .title {
-  width: 771px;
+  width: 80%;
   height: 34px;
 }
 
