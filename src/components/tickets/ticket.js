@@ -8,7 +8,6 @@ import DashboardContent from './content/content';
 function Ticket() {
   const { userName } = useContext(LoggedInContext);
 
-  console.log(userName);
   return (
     <div className="ticket">
       <Sidebar />
