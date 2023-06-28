@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import 'components/tickets/content/content.css';
 
 function DashboardContent() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const initialPagination = {
     limit: 6
   };
@@ -15,6 +15,21 @@ function DashboardContent() {
         setData(data.results);
       });
   }, []);
+
+  const mappedData = useMemo(() => {
+    return data.map((item) => (
+      <React.Fragment key={item.id} className="content">
+        <tr className="body-content">
+          <td className="desc">{item.name.toUpperCase()}</td>
+          <td className="customername">{item.url}</td>
+        </tr>
+        <tr>
+          <td colSpan="4" className="dashbord-content-divider"></td>
+        </tr>
+      </React.Fragment>
+    ))
+  }, [data]);
+
   return (
     <div className="dashboard-content-heading">
       <h1 className="dashboard-content-subheading"> All tickets</h1>
@@ -24,18 +39,7 @@ function DashboardContent() {
           <th className="customername">URL</th>
         </thead>
         <tbody className="table-body">
-          {data &&
-            data.map((item) => (
-              <React.Fragment key={item.id} className="content">
-                <tr className="body-content">
-                  <td className="desc">{item.name.toUpperCase()}</td>
-                  <td className="customername">{item.url}</td>
-                </tr>
-                <tr>
-                  <td colSpan="4" className="dashbord-content-divider"></td>
-                </tr>
-              </React.Fragment>
-            ))}
+          {mappedData}
         </tbody>
       </table>
     </div>
